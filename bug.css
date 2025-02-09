@@ -1,0 +1,28 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+#myDiv {
+  color: green;
+}
+
+#myDiv.container {
+  color: purple; 
+}
+
+/*This style declaration is causing the unexpected behavior*/
+.container #myDiv {
+  color: yellow;
+}
+```
+
+The unexpected behavior arises from the interaction between the ID selector (`#myDiv`) and the class selector (`.container`).  The rule `.container #myDiv` has higher specificity than `#myDiv.container` even though it seems counterintuitive.  The combination of a class and an ID selector has greater precedence than only an ID selector with a class.
+
+This can lead to unexpected styles being applied when dealing with nested elements and using ID selectors within a class or vice-versa.
