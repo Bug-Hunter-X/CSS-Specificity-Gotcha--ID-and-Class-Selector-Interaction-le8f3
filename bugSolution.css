@@ -1,0 +1,26 @@
+The solution involves understanding and adjusting CSS specificity.  Here's how we can solve the problem:
+
+To ensure that `#myDiv.container` takes precedence, we can use more specific selectors or adjust the order of declarations. 
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+#myDiv {
+  color: green;
+}
+
+#myDiv.container {
+  color: purple;
+}
+
+/* Removed conflicting selector */
+
+```
+
+By removing the conflicting selector `.container #myDiv`, we correctly apply the `purple` color to `#myDiv` when it has the `.container` class.  Alternatively, we could've used a more specific selector to override it,  but this solution provides a cleaner approach. 
